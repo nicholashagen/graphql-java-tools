@@ -103,7 +103,20 @@ internal class MethodFieldResolver(field: FieldDefinition, search: FieldResolver
         } + listOf(returnValueMatch)
     }
 
-    private fun getIndexOffset() = if(resolverInfo is NormalResolverInfo) 1 else 0
+    private fun getIndexOffset(): Int {
+        if (resolverInfo is NormalResolverInfo && method != null) {
+            if (method.getDeclaringClass().isAssignableFrom(resolverInfo.dataClassType)) {
+                return 0
+            }
+            else {
+                return 1
+            }
+        }
+        else {
+            return 0
+        }
+    }
+
     private fun getJavaMethodParameterIndex(index: Int) = index + getIndexOffset()
 
     private fun getJavaMethodParameterType(index: Int): JavaType? {
