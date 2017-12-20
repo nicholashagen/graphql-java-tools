@@ -38,11 +38,15 @@ type Human implements Character {
     # The name of the human
     name: String
     # The friends of the human, or an empty list if they have none
-    friends: [Character]
+    friends : [Character]
     # Which movies they appear in
     appearsIn: [Episode]
     # The home planet of the human, or null if unknown
     homePlanet: String
+    
+    # test values to showcase using Resolver and Type w/ Args
+    bestFriends : [Character]
+    allFriends(limit:Int) : [Character]
 }
 
 # A mechanical creature in the Star Wars universe

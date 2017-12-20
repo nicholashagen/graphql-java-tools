@@ -37,6 +37,10 @@ public class Human implements Character {
         return friends;
     }
 
+    public List<Character> getAllFriends(Integer limit) {
+    	return friends;
+    }
+
     @Override
     public List<Episode> getAppearsIn() {
         return appearsIn;
